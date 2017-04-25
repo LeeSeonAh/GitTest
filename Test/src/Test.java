@@ -13,14 +13,14 @@ public class Test{
         if(n<1 && n>10000){
         	return;
         }
+        
+        sc.nextLine();
 
         String command = "";
         for(int i=0; i<n; i++){
-            Scanner sc2 = new Scanner(System.in);
-            command = String.valueOf(sc2.nextLine());
+            //Scanner sc2 = new Scanner(System.in);
+            command = String.valueOf(sc.nextLine());
             command = command.trim();
-            
-            
 
             if(command.contains("push")){
                 int num = Integer.parseInt(command.split(" ")[1]);

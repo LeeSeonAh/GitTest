@@ -10,9 +10,13 @@ public class BJ9012 {
 		int n = 0;
 		n = sc.nextInt();
 		
+		sc.nextLine();
+		
 		for(int i=0; i<n; i++){
-			 Scanner scan = new Scanner(System.in);
-			 mVps.checkVPS(scan.nextLine());
+			String str = sc.nextLine();
+			if(str.length()>=2 && str.length()<=50){
+				 mVps.checkVPS(str);
+			}
 	            
 		}
 	}
@@ -46,3 +50,13 @@ class VPS{
 		
 	}
 }
+/*
+ÀÔ·Â ¿¹
+6
+(())())
+(((()())()
+(()())((()))
+((()()(()))(((())))()
+()()()()(()()())()
+(()((())()(
+*/
