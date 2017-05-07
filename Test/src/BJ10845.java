@@ -1,17 +1,16 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import javax.naming.Context;
-
-/** 스택
- * 
+/**
+ * 큐
  * @author lsaa5
  *
  */
-public class Test{
-    public static void main(String[] args){
-    	
-        StackClass mStack = new StackClass();
+public class BJ10845 {
+
+	public static void main(String[] args) {
+		
+		QueueClass mQueue = new QueueClass();
 
         Scanner sc = new Scanner(System.in);
         int n = 0;
@@ -25,31 +24,32 @@ public class Test{
 
         String command = "";
         for(int i=0; i<n; i++){
-            //Scanner sc2 = new Scanner(System.in);
             command = String.valueOf(sc.nextLine());
             command = command.trim();
 
             if(command.contains("push")){
                 int num = Integer.parseInt(command.split(" ")[1]);
-                mStack.push(num);
+                mQueue.push(num);
             }else if(command.equals("pop")){
-                mStack.pop();
+                mQueue.pop();
             }else if(command.equals("size")){
-                mStack.size();
+                mQueue.size();
             }else if(command.equals("empty")){
-                mStack.empty();
-            }else if(command.equals("top")){
-                mStack.top();
+                mQueue.empty();
+            }else if(command.equals("front")){
+                mQueue.front();
+            }else if(command.equals("back")){
+                mQueue.back();
             }
         }
 
 
-    }
-    
+	}
 
 }
 
-class StackClass {
+
+class QueueClass {
     public ArrayList<Integer> arr = new ArrayList<>();
 
     public void push(int x){
@@ -57,9 +57,9 @@ class StackClass {
     }
 
     public void pop(){
-        top();
+        front();
         if(arr.size() > 0){
-            arr.remove(arr.size()-1);
+        	arr.remove(0);
         }
     }
 
@@ -72,8 +72,16 @@ class StackClass {
         System.out.println(result);
         return result;
     }
+    
+    public void front(){
+    	if(arr.isEmpty()){
+    		System.out.println(-1);
+    	}else{
+    		System.out.println(arr.get(0));
+    	}
+    }
 
-    public void top(){
+    public void back(){
         if(arr.isEmpty()){
             System.out.println(-1);
         }else{
@@ -82,20 +90,3 @@ class StackClass {
     }
 
 }
-
-/*입력예
-14
-push 1
-push 2
-top
-size
-empty
-pop
-pop
-pop
-size
-empty
-pop
-push 3
-empty
-top*/
